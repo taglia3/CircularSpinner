@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CircularSpinnerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="IsI-P2-chr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IsI-P2-chr" secondAttribute="bottom" id="5b4-yi-ezQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IsI-P2-chr" secondAttribute="bottom" id="B6N-E9-wKy"/>
+                            <constraint firstItem="IsI-P2-chr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CJc-Kd-Baq"/>
+                            <constraint firstAttribute="trailing" secondItem="IsI-P2-chr" secondAttribute="trailing" id="LgU-nx-Sfu"/>
+                            <constraint firstItem="IsI-P2-chr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Mnr-vZ-5lJ"/>
+                            <constraint firstAttribute="trailing" secondItem="IsI-P2-chr" secondAttribute="trailing" id="Q7s-t3-CtH"/>
+                            <constraint firstAttribute="trailing" secondItem="IsI-P2-chr" secondAttribute="trailing" id="Ua1-EC-42c"/>
+                            <constraint firstItem="IsI-P2-chr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UqA-mf-eEp"/>
+                            <constraint firstItem="IsI-P2-chr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gHW-d6-sA1"/>
+                            <constraint firstItem="IsI-P2-chr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nn9-73-f3R"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IsI-P2-chr" secondAttribute="bottom" id="qc5-5P-6b8"/>
+                            <constraint firstItem="IsI-P2-chr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wxK-GH-Trf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CJc-Kd-Baq"/>
+                                <exclude reference="Mnr-vZ-5lJ"/>
+                                <exclude reference="Q7s-t3-CtH"/>
+                                <exclude reference="Ua1-EC-42c"/>
+                                <exclude reference="gHW-d6-sA1"/>
+                                <exclude reference="nn9-73-f3R"/>
+                                <exclude reference="5b4-yi-ezQ"/>
+                                <exclude reference="B6N-E9-wKy"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="325.5" y="338.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backgroundImage" width="375" height="667"/>
+    </resources>
+</document>
