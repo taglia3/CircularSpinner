@@ -87,7 +87,7 @@ public class CircularSpinner: UIView {
             appearanceDismissButton()
         }
     }
-    public var lineWidth: CGFloat = 8 {
+    public var lineWidth: CGFloat = 6 {
         didSet {
             appearanceBackgroundLayer()
             appearanceProgressLayer()
@@ -98,7 +98,7 @@ public class CircularSpinner: UIView {
             appearanceBackgroundLayer()
         }
     }
-    public var pgColor: UIColor = UIColor(colorLiteralRed: 65.0/255, green: 131.0/255, blue: 215.0/255, alpha: 1) {
+    public var pgColor: UIColor = UIColor(colorLiteralRed: 47.0/255, green: 177.0/255, blue: 254.0/255, alpha: 1) {
         didSet {
             appearanceProgressLayer()
         }
@@ -233,7 +233,7 @@ public class CircularSpinner: UIView {
         func makeAnimationforKeyPath(keyPath: String) -> CABasicAnimation {
             let tempAnimation = CABasicAnimation(keyPath: keyPath)
             tempAnimation.repeatCount = 1
-            tempAnimation.speed = 1.9
+            tempAnimation.speed = 2.0
             tempAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             
             tempAnimation.fromValue = strokeRange.start
@@ -268,7 +268,7 @@ public class CircularSpinner: UIView {
         let spinner = CircularSpinner.sharedInstance
         
         if let attributeStr = spinner.delegate?.circularSpinnerTitleForValue?(value) {
-            spinner.titleLabel.attributedText = spinner.delegate?.circularSpinnerTitleForValue?(value)
+            spinner.titleLabel.attributedText = attributeStr
         } else {
             spinner.titleLabel.text = "\(Int(value * 100))%"
         }
@@ -306,6 +306,7 @@ public class CircularSpinner: UIView {
     let π2 = M_PI * 2
     override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         
+        progressCircleLayer.strokeEnd = CGFloat(strokeRange.start)
         progressCircleLayer.addAnimation(animationGroup, forKey: "strokeEnd")
         
         CATransaction.begin()
@@ -313,7 +314,9 @@ public class CircularSpinner: UIView {
         currentRotation += strokeRange.end * π2
         currentRotation %= π2
         progressCircleLayer.setAffineTransform(CGAffineTransformMakeRotation(CGFloat(currentRotation)))
+        progressCircleLayer.strokeEnd = CGFloat(strokeRange.end)
         CATransaction.commit()
+        
     }
 }
 
