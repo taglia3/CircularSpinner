@@ -18,9 +18,6 @@ public enum CircularSpinnerType {
     case indeterminate
 }
 
-private let duration = 2.0
-private let strokeRange = (start: 0.0, end: 0.8)
-
 public class CircularSpinner: UIView {
     
     // MARK: - singleton
@@ -39,6 +36,9 @@ public class CircularSpinner: UIView {
     private var backgroundCircleLayer = CAShapeLayer()
     private var rotationLayer = CAShapeLayer()
     private var progressCircleLayer = CAShapeLayer()
+    
+    private static let duration = 2.0
+    private static let strokeRange = (start: 0.0, end: 0.8)
     
     private var startAngle: CGFloat {
         return CGFloat(M_PI_2)
@@ -162,19 +162,26 @@ public class CircularSpinner: UIView {
         rotationLayer.addAnimation(rotationAnimation, forKey: rotationAnimation.keyPath)
     }
     
+    private func stopInderminateAnimation() {
+        CircularSpinner.sharedInstance.progressCircleLayer.setAffineTransform(CGAffineTransformIdentity)
+        progressCircleLayer.removeAnimationForKey("strokeEnd")
+        rotationLayer.removeAnimationForKey(rotationAnimation.keyPath!)
+        animationGroup.delegate = nil
+    }
+    
     private func configureBackgroundLayer() {
-        backgroundCircleLayer.frame = bounds
+        backgroundCircleLayer.bounds = bounds
         layer.addSublayer(backgroundCircleLayer)
         appearanceBackgroundLayer()
     }
     
     private func configureRotationLayer() {
-        rotationLayer.frame = bounds
+        rotationLayer.bounds = bounds
         layer.addSublayer(rotationLayer)
     }
     
     private func configureProgressLayer() {
-        progressCircleLayer.frame = bounds
+        progressCircleLayer.bounds = bounds
         rotationLayer.addSublayer(progressCircleLayer)
         appearanceProgressLayer()
     }
@@ -184,10 +191,18 @@ public class CircularSpinner: UIView {
     }
     
     private func configureType() {
-        progressCircleLayer.strokeEnd = type == .determinate ? 0 : CGFloat(strokeRange.end)
+        
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        progressCircleLayer.strokeEnd = type == .determinate ? 0 : CGFloat(CircularSpinner.strokeRange.end)
+        CATransaction.commit()
+        
         if type == .indeterminate {
             makeStrokeAnimationGroup()
             startInderminateAnimation()
+        }
+        else {
+            updateTitleLabel()
         }
     }
     
@@ -201,6 +216,12 @@ public class CircularSpinner: UIView {
     }
     
     private func appearanceProgressLayer() {
+        
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        progressCircleLayer.strokeEnd = type == .determinate ? 0 : CGFloat(CircularSpinner.strokeRange.end)
+        CATransaction.commit()
+        
         progressCircleLayer.lineWidth = lineWidth
         progressCircleLayer.fillColor = UIColor.clearColor().CGColor
         progressCircleLayer.strokeColor = pgColor.CGColor
@@ -220,10 +241,20 @@ public class CircularSpinner: UIView {
     private func updateFrame() {
         if let containerView = CircularSpinner.containerView() {
             CircularSpinner.sharedInstance.frame = containerView.bounds
-            backgroundCircleLayer.frame = bounds
-            rotationLayer.frame = bounds
-            progressCircleLayer.frame = bounds
+            
+            backgroundCircleLayer.bounds = bounds
+            rotationLayer.bounds = bounds
+            progressCircleLayer.bounds = bounds
+            
+            backgroundCircleLayer.position = arcCenter
+            rotationLayer.position = arcCenter
+            progressCircleLayer.position = arcCenter
         }
+    }
+    
+    private func reset() {
+        let spinner = CircularSpinner.sharedInstance
+        spinner.stopInderminateAnimation()
     }
     
     private func makeStrokeAnimationGroup() {
@@ -236,15 +267,15 @@ public class CircularSpinner: UIView {
             tempAnimation.speed = 2.0
             tempAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             
-            tempAnimation.fromValue = strokeRange.start
-            tempAnimation.toValue =  strokeRange.end
-            tempAnimation.duration = duration
+            tempAnimation.fromValue = CircularSpinner.strokeRange.start
+            tempAnimation.toValue =  CircularSpinner.strokeRange.end
+            tempAnimation.duration = CircularSpinner.duration
             
             return tempAnimation
         }
         strokeEndAnimation = makeAnimationforKeyPath("strokeEnd")
         strokeStartAnimation = makeAnimationforKeyPath("strokeStart")
-        strokeStartAnimation.beginTime = duration / 2
+        strokeStartAnimation.beginTime = CircularSpinner.duration / 2
         animationGroup.animations = [strokeEndAnimation, strokeStartAnimation, ]
         animationGroup.delegate = self
     }
@@ -291,7 +322,7 @@ public class CircularSpinner: UIView {
         strokeAnimation.removedOnCompletion = false
         strokeAnimation.fillMode = kCAFillModeRemoved
         strokeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        progressCircleLayer.addAnimation(strokeAnimation, forKey: "strokeAnimation")
+        progressCircleLayer.addAnimation(strokeAnimation, forKey: "strokeEnd")
         progressCircleLayer.strokeEnd = CGFloat(spinner.value)
         CATransaction.commit()
     }
@@ -302,21 +333,23 @@ public class CircularSpinner: UIView {
         CircularSpinner.hide()
     }
     
-    var currentRotation = 0.0
-    let π2 = M_PI * 2
+    private var currentRotation = 0.0
+    private let π2 = M_PI * 2
     override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         
-        progressCircleLayer.strokeEnd = CGFloat(strokeRange.start)
+        progressCircleLayer.strokeEnd = CGFloat(CircularSpinner.strokeRange.start)
+        progressCircleLayer.opacity = 0
         progressCircleLayer.addAnimation(animationGroup, forKey: "strokeEnd")
+        
         
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        currentRotation += strokeRange.end * π2
+        currentRotation += CircularSpinner.strokeRange.end * π2
         currentRotation %= π2
         progressCircleLayer.setAffineTransform(CGAffineTransformMakeRotation(CGFloat(currentRotation)))
-        progressCircleLayer.strokeEnd = CGFloat(strokeRange.end)
+        progressCircleLayer.strokeEnd = CGFloat(CircularSpinner.strokeRange.end)
+        progressCircleLayer.opacity = 1
         CATransaction.commit()
-        
     }
 }
 
@@ -324,17 +357,24 @@ public class CircularSpinner: UIView {
 // MARK: - API
 extension CircularSpinner {
     
-    public class func show(title: String, animated: Bool = true, type: CircularSpinnerType = .determinate, delegate: CircularSpinnerDelegate? = nil) -> CircularSpinner {
+    public class func show(title: String = "", animated: Bool = true, type: CircularSpinnerType = .determinate, delegate: CircularSpinnerDelegate? = nil) -> CircularSpinner {
         let spinner = CircularSpinner.sharedInstance
+        spinner.reset()
+        
         spinner.type = type
         spinner.delegate = delegate
+        spinner.titleLabel.text = title
         spinner.updateFrame()
+        
+        spinner.value = 0
+        spinner.progressCircleLayer.strokeEnd =  0
+        spinner.appearanceProgressLayer()
         
         if spinner.superview == nil {
             spinner.alpha = 0
             
             guard let containerView = containerView() else {
-                fatalError("\n`UIApplication.keyWindow` is `nil`.")
+                fatalError("UIApplication.keyWindow is nil.")
             }
             
             containerView.addSubview(spinner)
@@ -348,9 +388,7 @@ extension CircularSpinner {
     
     public class func hide(completion: (() -> Void)? = nil) {
         let spinner = CircularSpinner.sharedInstance
-        
-        spinner.rotationLayer.removeAllAnimations()
-        spinner.progressCircleLayer.removeAllAnimations()
+        spinner.stopInderminateAnimation()
         
         dispatch_async(dispatch_get_main_queue(), {
             if spinner.superview == nil {

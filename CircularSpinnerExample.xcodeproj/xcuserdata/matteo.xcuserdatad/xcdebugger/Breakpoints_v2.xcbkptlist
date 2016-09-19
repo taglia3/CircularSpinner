@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CircularSpinnerExample/ViewController.swift"
-            timestampString = "495822898.913052"
+            timestampString = "496012477.208251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "circularSpinnerTitleForValue(_:)"
-            landmarkType = "5">
+            startingLineNumber = "96"
+            endingLineNumber = "96">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +24,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
-            timestampString = "495822083.638693"
+            timestampString = "496012377.578406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
+            landmarkName = "animationDidStop(_:finished:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+            timestampString = "496012377.578406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "updateFrame()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+            timestampString = "496012377.578406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "updateFrame()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CircularSpinnerExample.CircularSpinner.(updateFrame in _558513DB47B36C8D1AC3BB323247619B) () -&gt; ()"
+                  moduleName = "CircularSpinnerExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matteo/Documents/Personal/CircularSpinnerExample/CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+                  timestampString = "496009653.741295"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CircularSpinnerExample.CircularSpinner.(updateFrame in _558513DB47B36C8D1AC3BB323247619B) () -&gt; ()"
+                  moduleName = "CircularSpinnerExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matteo/Documents/Personal/CircularSpinnerExample/CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+                  timestampString = "496009653.741429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+            timestampString = "496012377.578406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "setValue(_:animated:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
-            timestampString = "495822083.638693"
+            timestampString = "496012377.578406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "setValue(_:animated:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,12 +136,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
-            timestampString = "495822083.638693"
+            timestampString = "496012377.578406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "configureProgressLayer()"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "setValue(_:animated:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+            timestampString = "496012377.578406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "configureType()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+            timestampString = "496012377.578406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "updateTitleLabel()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CircularSpinnerExample/CircularSpinner/CircularSpinner.swift"
+            timestampString = "496012341.840954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "configure()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -2,40 +2,40 @@
 //  ViewController.swift
 //  CircularSpinnerExample
 //
-//  Created by Matteo Tagliafico on 15/09/16.
+//  Created by Matteo Tagliafico on 19/09/16.
 //  Copyright © 2016 Matteo Tagliafico. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // MARK: - view lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    // MARK : - actions
+    @IBAction private func showDeterminateSpinner(sender: UIButton?) {
+        
+        CircularSpinner.show(animated: true, delegate: self)
+        CircularSpinner.setValue(0.1, animated: true)
         
         delayWithSeconds(1) {
-            CircularSpinner.show("Ciao", animated: true, type: .determinate, delegate: self)
-            CircularSpinner.sharedInstance.type = .indeterminate
-        }
-        
-        delayWithSeconds(1) {
-            CircularSpinner.setValue(CircularSpinner.sharedInstance.value + 0.1, animated: true)
+            CircularSpinner.setValue(CircularSpinner.sharedInstance.value + 0.6, animated: true)
         }
         delayWithSeconds(2) {
-            CircularSpinner.setValue(CircularSpinner.sharedInstance.value + 0.1, animated: true)
-        }
-        delayWithSeconds(3) {
             CircularSpinner.setValue(CircularSpinner.sharedInstance.value + 0.3, animated: true)
         }
-        delayWithSeconds(4) {
-            CircularSpinner.setValue(CircularSpinner.sharedInstance.value + 0.4, animated: true)
-        }
+    }
+    
+    @IBAction private func showIndeterminateSpinner(sender: UIButton?) {
+        
+        CircularSpinner.show("Loading...", animated: true, type: .indeterminate)
+        
         delayWithSeconds(5) {
-            CircularSpinner.setValue(CircularSpinner.sharedInstance.value + 0.1, animated: true)
+            CircularSpinner.hide()
         }
     }
 }
@@ -45,11 +45,9 @@ class ViewController: UIViewController {
 extension ViewController: CircularSpinnerDelegate {
     
     func circularSpinnerTitleForValue(value: Float) -> NSAttributedString {
-        
         let attributeStr = NSMutableAttributedString(string: "\(Int(value * 100))%")
-        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(60, weight: UIFontWeightThin)], range: NSMakeRange(0, attributeStr.string.characters.count - 1))
-        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(40, weight: UIFontWeightUltraLight)], range: NSMakeRange(attributeStr.string.characters.count - 1, 1))
+        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(70, weight: UIFontWeightThin)], range: NSMakeRange(0, attributeStr.string.characters.count - 1))
+        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(50, weight: UIFontWeightUltraLight)], range: NSMakeRange(attributeStr.string.characters.count - 1, 1))
         return attributeStr
     }
 }
-
