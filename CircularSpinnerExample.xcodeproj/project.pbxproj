@@ -16,7 +16,6 @@
 		955D11271D8A7C9B00C4C41A /* CircularSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955D11261D8A7C9B00C4C41A /* CircularSpinner.swift */; };
 		955D11291D8A7CB000C4C41A /* CircularSpinner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955D11281D8A7CB000C4C41A /* CircularSpinner.xib */; };
 		956AFE571D9044B700C74F5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AFE561D9044B700C74F5C /* ViewController.swift */; };
-		956AFE591D9080A700C74F5C /* CircularSpinnerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AFE581D9080A700C74F5C /* CircularSpinnerManager.swift */; };
 		95E747F21D8AD02E00A2D7CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E747F11D8AD02E00A2D7CE /* Utils.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +52,6 @@
 		955D11261D8A7C9B00C4C41A /* CircularSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularSpinner.swift; path = CircularSpinner/CircularSpinner.swift; sourceTree = "<group>"; };
 		955D11281D8A7CB000C4C41A /* CircularSpinner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CircularSpinner.xib; path = CircularSpinner/CircularSpinner.xib; sourceTree = "<group>"; };
 		956AFE561D9044B700C74F5C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		956AFE581D9080A700C74F5C /* CircularSpinnerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularSpinnerManager.swift; path = CircularSpinner/CircularSpinnerManager.swift; sourceTree = "<group>"; };
 		95E747F11D8AD02E00A2D7CE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +136,6 @@
 		955D11251D8A7C8300C4C41A /* CircularSpinner */ = {
 			isa = PBXGroup;
 			children = (
-				956AFE581D9080A700C74F5C /* CircularSpinnerManager.swift */,
 				955D11261D8A7C9B00C4C41A /* CircularSpinner.swift */,
 				955D11281D8A7CB000C4C41A /* CircularSpinner.xib */,
 			);
@@ -280,7 +277,6 @@
 				956AFE571D9044B700C74F5C /* ViewController.swift in Sources */,
 				955D11271D8A7C9B00C4C41A /* CircularSpinner.swift in Sources */,
 				955D10F81D8A7C7300C4C41A /* AppDelegate.swift in Sources */,
-				956AFE591D9080A700C74F5C /* CircularSpinnerManager.swift in Sources */,
 				95E747F21D8AD02E00A2D7CE /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

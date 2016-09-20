@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     // MARK : - actions
     @IBAction private func showDeterminateSpinner(sender: UIButton?) {
         
-        CircularSpinner.show(animated: true, delegate: self)
+        CircularSpinner.show(animated: true, showDismissButton: false, delegate: self)
         CircularSpinner.setValue(0.1, animated: true)
         
         delayWithSeconds(1) {
