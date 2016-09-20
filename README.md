@@ -1,18 +1,18 @@
 # CircularSpinner
+A Beautiful fullscreen Circular Spinner, very useful for determinate or indeterminate task. You can use it as activity indicator during loading.
 
-
-## [GIF] Threedimensional & Normal mode
+# Demo
 
 ![Spinner demo](https://raw.githubusercontent.com/taglia3/CircularSpinner/master/Gif/demo.gif)
 
-## Installation
+# Installation
 
 CircularSpinner will be available through [CocoaPods](http://cocoapods.org) soon.
 
-## Usage
+# Usage
 You can present the circular spinner from anywhere by calling the `show()` class method.
 
-# Determinate Mode Example:
+## Determinate Mode Example:
 
 Presentation:
 
@@ -31,7 +31,7 @@ The spinner will automatically dismiss when it reaches the 100%, alternatively y
 CircularSpinner.hide()
 ```
 
-# Ineterminate Mode Example:
+## Indeterminate Mode Example:
 
 Presentation:
 
@@ -44,7 +44,7 @@ Dismiss by calling:
 CircularSpinner.hide()
 ```
 
-# Delegate
+## Delegate
 There's one method in the CircularSpinnerDelegate that you can use to customize the appearance of the percentual Label:
 
 ```swift
