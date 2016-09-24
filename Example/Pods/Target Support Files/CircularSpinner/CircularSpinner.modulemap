@@ -1,0 +1,6 @@
+framework module CircularSpinner {
+  umbrella header "CircularSpinner-umbrella.h"
+
+  export *
+  module * { export * }
+}

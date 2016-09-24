@@ -1,0 +1,16 @@
+PODS:
+  - CircularSpinner (0.2)
+
+DEPENDENCIES:
+  - CircularSpinner (from `../`)
+
+EXTERNAL SOURCES:
+  CircularSpinner:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CircularSpinner: 4e606a244cc76456aae4d1074670fc22c7f61287
+
+PODFILE CHECKSUM: e1fcd58bf0b48a8ef7221c5162adce83693a8ebf
+
+COCOAPODS: 1.1.0.rc.2

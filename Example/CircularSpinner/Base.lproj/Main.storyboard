@@ -1,25 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1eP-7D-fsx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <scene sceneID="DXJ-8l-TWt">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1eP-7D-fsx" customClass="ViewController" customModule="CircularSpinnerExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="Opj-XA-VAP"/>
+                        <viewControllerLayoutGuide type="bottom" id="o3E-Bz-1Q9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <view key="view" contentMode="scaleToFill" id="oW4-TZ-Uif">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-24-edl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-m4-FpJ">
+                                <rect key="frame" x="145" y="562" width="85" height="30"/>
+                                <state key="normal" title="Determinate"/>
+                                <connections>
+                                    <action selector="showDeterminateSpinner:" destination="1eP-7D-fsx" eventType="touchUpInside" id="CLR-iG-tkO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWX-Tb-3ZD">
+                                <rect key="frame" x="140" y="612" width="95" height="30"/>
+                                <state key="normal" title="Indeterminate"/>
+                                <connections>
+                                    <action selector="showIndeterminateSpinner:" destination="1eP-7D-fsx" eventType="touchUpInside" id="DZo-je-tHd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o3E-Bz-1Q9" firstAttribute="top" secondItem="BWX-Tb-3ZD" secondAttribute="bottom" constant="25" id="2MW-3w-YRP"/>
+                            <constraint firstItem="BWX-Tb-3ZD" firstAttribute="centerX" secondItem="oW4-TZ-Uif" secondAttribute="centerX" id="5FB-JG-dPN"/>
+                            <constraint firstItem="o3E-Bz-1Q9" firstAttribute="top" secondItem="NZz-24-edl" secondAttribute="bottom" id="5Ju-tu-lid"/>
+                            <constraint firstItem="NZz-24-edl" firstAttribute="top" secondItem="Opj-XA-VAP" secondAttribute="bottom" constant="-20" id="7KA-Fq-Zq2"/>
+                            <constraint firstAttribute="trailing" secondItem="NZz-24-edl" secondAttribute="trailing" id="Bmq-In-ZE6"/>
+                            <constraint firstItem="BWX-Tb-3ZD" firstAttribute="top" secondItem="1ds-m4-FpJ" secondAttribute="bottom" constant="20" id="cMQ-9H-NyP"/>
+                            <constraint firstItem="NZz-24-edl" firstAttribute="leading" secondItem="oW4-TZ-Uif" secondAttribute="leading" id="fgQ-jK-1ut"/>
+                            <constraint firstItem="1ds-m4-FpJ" firstAttribute="centerX" secondItem="BWX-Tb-3ZD" secondAttribute="centerX" id="jh5-Am-6Uw"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="msj-9w-Yd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-510" y="-553"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backgroundImage" width="236" height="441"/>
+    </resources>
 </document>

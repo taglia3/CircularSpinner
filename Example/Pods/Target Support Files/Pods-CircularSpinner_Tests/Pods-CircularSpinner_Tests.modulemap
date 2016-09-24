@@ -1,0 +1,6 @@
+framework module Pods_CircularSpinner_Tests {
+  umbrella header "Pods-CircularSpinner_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
