@@ -1,28 +1,66 @@
 # CircularSpinner
+A Beautiful fullscreen Circular Spinner, very useful for determinate or indeterminate task. You can use it as activity indicator during loading.
 
-[![CI Status](http://img.shields.io/travis/Matteo Tagliafico/CircularSpinner.svg?style=flat)](https://travis-ci.org/Matteo Tagliafico/CircularSpinner)
-[![Version](https://img.shields.io/cocoapods/v/CircularSpinner.svg?style=flat)](http://cocoapods.org/pods/CircularSpinner)
-[![License](https://img.shields.io/cocoapods/l/CircularSpinner.svg?style=flat)](http://cocoapods.org/pods/CircularSpinner)
-[![Platform](https://img.shields.io/cocoapods/p/CircularSpinner.svg?style=flat)](http://cocoapods.org/pods/CircularSpinner)
+# Demo
 
-## Example
+![Spinner demo](https://raw.githubusercontent.com/taglia3/CircularSpinner/master/Gif/demo.gif)
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-## Installation
+# Installation
 
 CircularSpinner is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "CircularSpinner"
+pod 'CircularSpinner'
+```
+
+# Usage
+You can present the circular spinner from anywhere by calling the `show()` class method.
+
+## Determinate Mode Example:
+
+Presentation:
+
+```swift
+CircularSpinner.show(animated: true, showDismissButton: false, delegate: self)
+```
+Update the value by calling:
+
+```swift
+CircularSpinner.setValue(0.2, animated: true)
+```
+
+The spinner will automatically dismiss when it reaches the 100%, alternatively you can dismiss it manually by calling:
+
+```swift
+CircularSpinner.hide()
+```
+
+## Indeterminate Mode Example:
+
+Presentation:
+
+```swift
+CircularSpinner.show("Loading...", animated: true, type: .indeterminate)
+```
+Dismiss by calling:
+
+```swift
+CircularSpinner.hide()
+```
+
+## Delegate
+There's one method in the CircularSpinnerDelegate that you can use to customize the appearance of the percentual Label:
+
+```swift
+optional func circularSpinnerTitleForValue(value: Float) -> NSAttributedString
 ```
 
 ## Author
 
-Matteo Tagliafico, m.tagliafico@reply.it
+taglia3, matteo.tagliafico@gmail.com
+
+[LinkedIn](https://www.linkedin.com/in/matteo-tagliafico-ba6985a3), Matteo Tagliafico
 
 ## License
 
