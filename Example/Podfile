@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CircularSpinner_Example' do
+  pod 'CircularSpinner', :path => '../'
+
+  target 'CircularSpinner_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
