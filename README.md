@@ -61,7 +61,7 @@ CircularSpinner.hide()
 There's one method in the CircularSpinnerDelegate that you can use to customize the appearance of the percentual Label:
 
 ```swift
-optional func circularSpinnerTitleForValue(value: Float) -> NSAttributedString
+@objc optional func circularSpinnerTitleForValue(_ value: Float) -> NSAttributedString
 ```
 
 ## Author
