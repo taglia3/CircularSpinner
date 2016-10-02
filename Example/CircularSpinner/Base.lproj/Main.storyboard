@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1eP-7D-fsx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1eP-7D-fsx">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="DXJ-8l-TWt">
             <objects>
-                <viewController id="1eP-7D-fsx" customClass="ViewController" customModule="CircularSpinnerExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1eP-7D-fsx" customClass="ViewController" customModule="CircularSpinner_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Opj-XA-VAP"/>
                         <viewControllerLayoutGuide type="bottom" id="o3E-Bz-1Q9"/>
@@ -17,25 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-24-edl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-24-edl"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-m4-FpJ">
-                                <rect key="frame" x="145" y="562" width="85" height="30"/>
                                 <state key="normal" title="Determinate"/>
                                 <connections>
-                                    <action selector="showDeterminateSpinner:" destination="1eP-7D-fsx" eventType="touchUpInside" id="CLR-iG-tkO"/>
+                                    <action selector="showDeterminateSpinnerWithSender:" destination="1eP-7D-fsx" eventType="touchUpInside" id="kR0-xb-1Wb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWX-Tb-3ZD">
-                                <rect key="frame" x="140" y="612" width="95" height="30"/>
                                 <state key="normal" title="Indeterminate"/>
                                 <connections>
-                                    <action selector="showIndeterminateSpinner:" destination="1eP-7D-fsx" eventType="touchUpInside" id="DZo-je-tHd"/>
+                                    <action selector="showIndeterminateSpinnerWithSender:" destination="1eP-7D-fsx" eventType="touchUpInside" id="73R-XU-vHY"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o3E-Bz-1Q9" firstAttribute="top" secondItem="BWX-Tb-3ZD" secondAttribute="bottom" constant="25" id="2MW-3w-YRP"/>
                             <constraint firstItem="BWX-Tb-3ZD" firstAttribute="centerX" secondItem="oW4-TZ-Uif" secondAttribute="centerX" id="5FB-JG-dPN"/>
@@ -47,7 +44,6 @@
                             <constraint firstItem="1ds-m4-FpJ" firstAttribute="centerX" secondItem="BWX-Tb-3ZD" secondAttribute="centerX" id="jh5-Am-6Uw"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msj-9w-Yd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

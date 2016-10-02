@@ -45,10 +45,10 @@ class ViewController: UIViewController {
 // MARK: - CircularSpinnerDelegate
 extension ViewController: CircularSpinnerDelegate {
     
-    func circularSpinnerTitleForValue(value: Float) -> NSAttributedString {
+    func circularSpinnerTitleForValue(_ value: Float) -> NSAttributedString {
         let attributeStr = NSMutableAttributedString(string: "\(Int(value * 100))%")
-        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(70, weight: UIFontWeightThin)], range: NSMakeRange(0, attributeStr.string.characters.count - 1))
-        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(50, weight: UIFontWeightUltraLight)], range: NSMakeRange(attributeStr.string.characters.count - 1, 1))
+        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 70, weight: UIFontWeightThin)], range: NSMakeRange(0, attributeStr.string.characters.count - 1))
+        attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 50, weight: UIFontWeightUltraLight)], range: NSMakeRange(attributeStr.string.characters.count - 1, 1))
         return attributeStr
     }
 }

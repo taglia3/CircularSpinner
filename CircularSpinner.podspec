@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'CircularSpinner'
-  s.version      = '0.2'
+  s.version      = '1'
   s.summary      = 'A Beautiful fullscreen Circular Spinner, very useful for determinate or indeterminate task.'
   s.description  = <<-DESC
   A Beautiful fullscreen Circular Spinner, very useful for determinate or indeterminate task. You can use it as activity indicator during loading.
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/taglia3/CircularSpinner.git", :tag => "#{s.version}" }
   s.social_media_url = 'https://twitter.com/taglia3'
   s.frameworks        = 'UIKit'
-  s.ios.deployment_target = '8.2'
+  s.ios.deployment_target = '8.0'
 end

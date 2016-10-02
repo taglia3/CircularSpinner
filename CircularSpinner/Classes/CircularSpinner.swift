@@ -9,7 +9,7 @@
 import UIKit
 
 @objc public protocol CircularSpinnerDelegate: NSObjectProtocol {
-    optional func circularSpinnerTitleForValue(value: Float) -> NSAttributedString
+    @objc optional func circularSpinnerTitleForValue(_ value: Float) -> NSAttributedString
 }
 
 
@@ -18,42 +18,42 @@ public enum CircularSpinnerType {
     case indeterminate
 }
 
-public class CircularSpinner: UIView {
+open class CircularSpinner: UIView {
     
     // MARK: - singleton
-    static public let sharedInstance = CircularSpinner(frame: CGRect.zero)
+    static open let sharedInstance = CircularSpinner(frame: CGRect.zero)
     
     
     // MARK: - outlets
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var dismissButton: UIButton!
+    @IBOutlet fileprivate weak var titleLabel: UILabel!
+    @IBOutlet fileprivate weak var dismissButton: UIButton!
     
     // MARK: - properties
-    public weak var delegate: CircularSpinnerDelegate?
-    private var mainView: UIView!
-    private let nibName = "CircularSpinner"
+    open weak var delegate: CircularSpinnerDelegate?
+    fileprivate var mainView: UIView!
+    fileprivate let nibName = "CircularSpinner"
     
-    private var backgroundCircleLayer = CAShapeLayer()
-    private var progressCircleLayer = CAShapeLayer()
+    fileprivate var backgroundCircleLayer = CAShapeLayer()
+    fileprivate var progressCircleLayer = CAShapeLayer()
     
     var indeterminateDuration: Double = 1.5
     
-    private var startAngle: CGFloat {
+    fileprivate var startAngle: CGFloat {
         return CGFloat(M_PI_2)
     }
-    private var endAngle: CGFloat {
+    fileprivate var endAngle: CGFloat {
         return 5 * CGFloat(M_PI_2)
     }
-    private var arcCenter: CGPoint {
-        return CGPointMake(CGRectGetWidth(bounds) / 2, CGRectGetHeight(bounds) / 2)
+    fileprivate var arcCenter: CGPoint {
+        return CGPoint(x: bounds.width / 2, y: bounds.height / 2)
     }
-    private var arcRadius: CGFloat {
-        return (min(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) * 0.8) / 2
+    fileprivate var arcRadius: CGFloat {
+        return (min(bounds.width, bounds.height) * 0.8) / 2
     }
     
-    private var oldStrokeEnd: Float?
-    private var backingValue: Float = 0
-    public var value: Float {
+    fileprivate var oldStrokeEnd: Float?
+    fileprivate var backingValue: Float = 0
+    open var value: Float {
         get {
             return backingValue
         }
@@ -61,28 +61,28 @@ public class CircularSpinner: UIView {
             backingValue = min(1, max(0, newValue))
         }
     }
-    public var type: CircularSpinnerType = .determinate {
+    open var type: CircularSpinnerType = .determinate {
         didSet {
             configureType()
         }
     }
-    public var showDismissButton: Bool = true {
+    open var showDismissButton: Bool = true {
         didSet {
             appearanceDismissButton()
         }
     }
-    public var lineWidth: CGFloat = 6 {
+    open var lineWidth: CGFloat = 6 {
         didSet {
             appearanceBackgroundLayer()
             appearanceProgressLayer()
         }
     }
-    public var bgColor: UIColor = UIColor(colorLiteralRed: 238.0/255, green: 238.0/255, blue: 238.0/255, alpha: 1) {
+    open var bgColor: UIColor = UIColor(colorLiteralRed: 238.0/255, green: 238.0/255, blue: 238.0/255, alpha: 1) {
         didSet {
             appearanceBackgroundLayer()
         }
     }
-    public var pgColor: UIColor = UIColor(colorLiteralRed: 47.0/255, green: 177.0/255, blue: 254.0/255, alpha: 1) {
+    open var pgColor: UIColor = UIColor(colorLiteralRed: 47.0/255, green: 177.0/255, blue: 254.0/255, alpha: 1) {
         didSet {
             appearanceProgressLayer()
         }
@@ -95,8 +95,8 @@ public class CircularSpinner: UIView {
         xibSetup()
     }
     
-    public override func willMoveToSuperview(newSuperview: UIView?) {
-        super.willMoveToSuperview(newSuperview)
+    open override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
         configure()
     }
     
@@ -104,35 +104,35 @@ public class CircularSpinner: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func xibSetup() {
+    fileprivate func xibSetup() {
         mainView = loadViewFromNib()
         mainView.frame = bounds
-        mainView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        mainView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(mainView)
     }
     
-    private func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
+    fileprivate func loadViewFromNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil).first as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
         return view
     }
     
     
     // MARK: - drawing methods
-    public override func drawRect(rect: CGRect) {
+    open override func draw(_ rect: CGRect) {
         backgroundCircleLayer.path = getCirclePath()
         progressCircleLayer.path = getCirclePath()
     }
     
-    private func getCirclePath() -> CGPath {
-        return UIBezierPath(arcCenter: arcCenter, radius: arcRadius, startAngle: startAngle, endAngle: endAngle, clockwise: true).CGPath
+    fileprivate func getCirclePath() -> CGPath {
+        return UIBezierPath(arcCenter: arcCenter, radius: arcRadius, startAngle: startAngle, endAngle: endAngle, clockwise: true).cgPath
     }
     
     
     // MARK: - configure
-    private func configure() {
-        backgroundColor = UIColor.clearColor()
+    fileprivate func configure() {
+        backgroundColor = UIColor.clear
         
         configureBackgroundLayer()
         configureProgressLayer()
@@ -140,23 +140,23 @@ public class CircularSpinner: UIView {
         configureType()
     }
     
-    private func configureBackgroundLayer() {
+    fileprivate func configureBackgroundLayer() {
         backgroundCircleLayer.bounds = bounds
         layer.addSublayer(backgroundCircleLayer)
         appearanceBackgroundLayer()
     }
     
-    private func configureProgressLayer() {
+    fileprivate func configureProgressLayer() {
         progressCircleLayer.bounds = bounds
         layer.addSublayer(progressCircleLayer)
         appearanceProgressLayer()
     }
     
-    private func configureDismissButton() {
+    fileprivate func configureDismissButton() {
         appearanceDismissButton()
     }
     
-    private func configureType() {
+    fileprivate func configureType() {
         switch type {
         case .indeterminate:
             startInderminateAnimation()
@@ -169,31 +169,31 @@ public class CircularSpinner: UIView {
     
     
     // MARK: - appearance
-    private func appearanceBackgroundLayer() {
+    fileprivate func appearanceBackgroundLayer() {
         backgroundCircleLayer.lineWidth = lineWidth
-        backgroundCircleLayer.fillColor = UIColor.clearColor().CGColor
-        backgroundCircleLayer.strokeColor = bgColor.CGColor
+        backgroundCircleLayer.fillColor = UIColor.clear.cgColor
+        backgroundCircleLayer.strokeColor = bgColor.cgColor
         backgroundCircleLayer.lineCap = kCALineCapRound
     }
     
-    private func appearanceProgressLayer() {
+    fileprivate func appearanceProgressLayer() {
         progressCircleLayer.lineWidth = lineWidth
-        progressCircleLayer.fillColor = UIColor.clearColor().CGColor
-        progressCircleLayer.strokeColor = pgColor.CGColor
+        progressCircleLayer.fillColor = UIColor.clear.cgColor
+        progressCircleLayer.strokeColor = pgColor.cgColor
         progressCircleLayer.lineCap = kCALineCapRound
     }
     
-    private func appearanceDismissButton() {
-        dismissButton.hidden = !showDismissButton
+    fileprivate func appearanceDismissButton() {
+        dismissButton.isHidden = !showDismissButton
     }
     
     
     // MARK: - methods
-    private static func containerView() -> UIView? {
-        return UIApplication.sharedApplication().keyWindow
+    fileprivate static func containerView() -> UIView? {
+        return UIApplication.shared.keyWindow
     }
     
-    private func updateFrame() {
+    fileprivate func updateFrame() {
         if let containerView = CircularSpinner.containerView() {
             CircularSpinner.sharedInstance.frame = containerView.bounds
             
@@ -205,7 +205,7 @@ public class CircularSpinner: UIView {
         }
     }
     
-    private func generateAnimation() -> CAAnimationGroup {
+    fileprivate func generateAnimation() -> CAAnimationGroup {
         let headAnimation = CABasicAnimation(keyPath: "strokeStart")
         headAnimation.beginTime = indeterminateDuration / 3
         headAnimation.fromValue = 0
@@ -226,7 +226,7 @@ public class CircularSpinner: UIView {
         return groupAnimation
     }
     
-    private func generateRotationAnimation() -> CABasicAnimation {
+    fileprivate func generateRotationAnimation() -> CABasicAnimation {
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         animation.fromValue = 0
         animation.toValue = 2 * M_PI
@@ -235,19 +235,19 @@ public class CircularSpinner: UIView {
         return animation
     }
     
-    private func startInderminateAnimation() {
-        progressCircleLayer.addAnimation(generateAnimation(), forKey: "strokeLineAnimation")
-        progressCircleLayer.addAnimation(generateRotationAnimation(), forKey: "rotationAnimation")
+    fileprivate func startInderminateAnimation() {
+        progressCircleLayer.add(generateAnimation(), forKey: "strokeLineAnimation")
+        progressCircleLayer.add(generateRotationAnimation(), forKey: "rotationAnimation")
     }
     
-    private func stopInderminateAnimation() {
+    fileprivate func stopInderminateAnimation() {
         progressCircleLayer.removeAllAnimations()
         progressCircleLayer.removeAllAnimations()
     }
     
     
     // MARK: - update
-    public class func setValue(value: Float, animated: Bool) {
+    open class func setValue(_ value: Float, animated: Bool) {
         let spinner = CircularSpinner.sharedInstance
         guard spinner.type == .determinate else { return }
         
@@ -260,7 +260,7 @@ public class CircularSpinner: UIView {
         }
     }
     
-    private func updateTitleLabel() {
+    fileprivate func updateTitleLabel() {
         let spinner = CircularSpinner.sharedInstance
         
         if let attributeStr = spinner.delegate?.circularSpinnerTitleForValue?(value) {
@@ -270,7 +270,7 @@ public class CircularSpinner: UIView {
         }
     }
     
-    private func setStrokeEnd(animated animated: Bool, completed: (() -> Void)? = nil) {
+    fileprivate func setStrokeEnd(animated: Bool, completed: (() -> Void)? = nil) {
         let spinner = CircularSpinner.sharedInstance
         
         CATransaction.begin()
@@ -284,10 +284,10 @@ public class CircularSpinner: UIView {
         strokeAnimation.repeatCount = 1
         strokeAnimation.fromValue = oldStrokeEnd ?? 0
         strokeAnimation.toValue = spinner.value
-        strokeAnimation.removedOnCompletion = false
+        strokeAnimation.isRemovedOnCompletion = false
         strokeAnimation.fillMode = kCAFillModeRemoved
         strokeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        progressCircleLayer.addAnimation(strokeAnimation, forKey: "strokeLineAnimation")
+        progressCircleLayer.add(strokeAnimation, forKey: "strokeLineAnimation")
         progressCircleLayer.strokeEnd = CGFloat(spinner.value)
         CATransaction.commit()
         
@@ -296,7 +296,7 @@ public class CircularSpinner: UIView {
     
     
     // MARK: - actions
-    @IBAction private func dismissButtonTapped(sender: UIButton?) {
+    @IBAction fileprivate func dismissButtonTapped(_ sender: UIButton?) {
         CircularSpinner.hide()
     }
 }
@@ -305,7 +305,7 @@ public class CircularSpinner: UIView {
 // MARK: - API
 extension CircularSpinner {
     
-    public class func show(title: String = "", animated: Bool = true, type: CircularSpinnerType = .determinate, showDismissButton: Bool = true, delegate: CircularSpinnerDelegate? = nil) -> CircularSpinner {
+    public class func show(_ title: String = "", animated: Bool = true, type: CircularSpinnerType = .determinate, showDismissButton: Bool = true, delegate: CircularSpinnerDelegate? = nil) {
         let spinner = CircularSpinner.sharedInstance
         spinner.type = type
         spinner.delegate = delegate
@@ -323,23 +323,22 @@ extension CircularSpinner {
             
             containerView.addSubview(spinner)
             
-            UIView.animateWithDuration(0.33, delay: 0, options: .CurveEaseOut, animations: {
+            UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseOut, animations: {
                 spinner.alpha = 1
                 }, completion: nil)
         }
-        return spinner
     }
     
-    public class func hide(completion: (() -> Void)? = nil) {
+    public class func hide(_ completion: (() -> Void)? = nil) {
         let spinner = CircularSpinner.sharedInstance
         spinner.stopInderminateAnimation()
         
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             if spinner.superview == nil {
                 return
             }
             
-            UIView.animateWithDuration(0.33, delay: 0, options: .CurveEaseOut, animations: {
+            UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseOut, animations: {
                 spinner.alpha = 0
                 }, completion: {_ in
                     spinner.alpha = 1

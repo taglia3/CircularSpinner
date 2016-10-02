@@ -8,9 +8,8 @@
 
 import Foundation
 
-func delayWithSeconds(seconds: Double, completion: (() -> Void)) {
-    let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * seconds ))
-    dispatch_after(popTime, dispatch_get_main_queue()) {
+func delayWithSeconds(_ seconds: Double, completion: @escaping (() -> Void)) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { 
         completion()
     }
 }
