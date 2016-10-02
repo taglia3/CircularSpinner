@@ -10,8 +10,16 @@ A Beautiful fullscreen Circular Spinner, very useful for determinate or indeterm
 CircularSpinner is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
+Swift 3:
+
 ```ruby
 pod 'CircularSpinner'
+```
+
+Swift 2.2:
+
+```ruby
+pod 'CircularSpinner' ', '~> 0.2'
 ```
 
 # Usage
