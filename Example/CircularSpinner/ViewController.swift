@@ -12,23 +12,15 @@ import CircularSpinner
 class ViewController: UIViewController {
     
     // MARK: - properties
-    private var containerView: UIView?
+    @IBOutlet private var containerView: UIView!
     
     
     // MARK: - view lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupContainerView()
     }
 
 
-    // MARK: - methods
-    private func setupContainerView() {
-        containerView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 400))
-        containerView?.center = view.center
-    }
-    
-    
     // MARK : - actions
     @IBAction private func showDeterminateSpinner(sender: UIButton?) {
         
@@ -54,11 +46,6 @@ class ViewController: UIViewController {
     
     @IBAction private func switchChangeValue(sender: UISwitch?) {
         if let sender = sender {
-            if sender.isOn {
-                view.addSubview(containerView!)
-            } else {
-                containerView?.removeFromSuperview()
-            }
             CircularSpinner.useContainerView(sender.isOn ? containerView : nil)
         }
     }
