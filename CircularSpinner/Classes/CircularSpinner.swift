@@ -32,6 +32,7 @@ open class CircularSpinner: UIView {
     open weak var delegate: CircularSpinnerDelegate?
     fileprivate var mainView: UIView!
     fileprivate let nibName = "CircularSpinner"
+    private static weak var customSuperview: UIView? = nil
     
     fileprivate var backgroundCircleLayer = CAShapeLayer()
     fileprivate var progressCircleLayer = CAShapeLayer()
@@ -123,6 +124,7 @@ open class CircularSpinner: UIView {
     open override func draw(_ rect: CGRect) {
         backgroundCircleLayer.path = getCirclePath()
         progressCircleLayer.path = getCirclePath()
+        updateFrame()
     }
     
     fileprivate func getCirclePath() -> CGPath {
@@ -190,7 +192,16 @@ open class CircularSpinner: UIView {
     
     // MARK: - methods
     fileprivate static func containerView() -> UIView? {
-        return UIApplication.shared.keyWindow
+        return customSuperview ?? UIApplication.shared.keyWindow
+    }
+    
+    open class func useContainerView(_ sv: UIView?) {
+        customSuperview = sv
+    }
+    
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        updateFrame()
     }
     
     fileprivate func updateFrame() {
@@ -313,11 +324,12 @@ extension CircularSpinner {
         spinner.showDismissButton = showDismissButton
         spinner.value = 0
         spinner.updateFrame()
+        spinner.setNeedsDisplay()
         
         if spinner.superview == nil {
             spinner.alpha = 0
             
-            guard let containerView = containerView() else {
+            guard let containerView = CircularSpinner.containerView() else {
                 fatalError("UIApplication.keyWindow is nil.")
             }
             
