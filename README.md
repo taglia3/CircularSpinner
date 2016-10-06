@@ -25,6 +25,12 @@ pod 'CircularSpinner' ', '~> 0.2'
 # Usage
 You can present the circular spinner from anywhere by calling the `show()` class method.
 
+The default presentation mode is fullscreen, if you want present the spinner in a custom container view use this code before presenting it:
+
+```swift
+CircularSpinner.useContainerView(containerView)
+```
+
 ## Determinate Mode Example:
 
 Presentation:
