@@ -32,7 +32,8 @@ open class CircularSpinner: UIView {
     open weak var delegate: CircularSpinnerDelegate?
     fileprivate var mainView: UIView!
     fileprivate let nibName = "CircularSpinner"
-    private static weak var customSuperview: UIView? = nil
+    
+    fileprivate static weak var customSuperview: UIView? = nil
     
     fileprivate var backgroundCircleLayer = CAShapeLayer()
     fileprivate var progressCircleLayer = CAShapeLayer()
@@ -67,23 +68,27 @@ open class CircularSpinner: UIView {
             configureType()
         }
     }
-    open var showDismissButton: Bool = true {
+    open static var dismissButton: Bool = true
+    open var showDismissButton = dismissButton {
         didSet {
             appearanceDismissButton()
         }
     }
-    open var lineWidth: CGFloat = 6 {
+    open static var trackLineWidth: CGFloat = 6
+    private var lineWidth = trackLineWidth {
         didSet {
             appearanceBackgroundLayer()
             appearanceProgressLayer()
         }
     }
-    open var bgColor: UIColor = UIColor(colorLiteralRed: 238.0/255, green: 238.0/255, blue: 238.0/255, alpha: 1) {
+    open static var trackBgColor = UIColor(colorLiteralRed: 238.0/255, green: 238.0/255, blue: 238.0/255, alpha: 1)
+    private var bgColor = trackBgColor {
         didSet {
             appearanceBackgroundLayer()
         }
     }
-    open var pgColor: UIColor = UIColor(colorLiteralRed: 47.0/255, green: 177.0/255, blue: 254.0/255, alpha: 1) {
+    open static var trackPgColor = UIColor(colorLiteralRed: 47.0/255, green: 177.0/255, blue: 254.0/255, alpha: 1)
+    private var pgColor = trackPgColor {
         didSet {
             appearanceProgressLayer()
         }
@@ -183,6 +188,7 @@ open class CircularSpinner: UIView {
         progressCircleLayer.fillColor = UIColor.clear.cgColor
         progressCircleLayer.strokeColor = pgColor.cgColor
         progressCircleLayer.lineCap = kCALineCapRound
+        setNeedsDisplay()
     }
     
     fileprivate func appearanceDismissButton() {
