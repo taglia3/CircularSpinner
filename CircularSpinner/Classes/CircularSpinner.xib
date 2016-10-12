@@ -3,12 +3,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CircularSpinner" customModule="CircularSpinner" customModuleProvider="target">
             <connections>
+                <outlet property="circleView" destination="B3d-29-DlR" id="uW0-qU-2mq"/>
+                <outlet property="circleViewWidth" destination="zbZ-rs-muA" id="iMN-Z8-7Me"/>
                 <outlet property="dismissButton" destination="dIs-Hl-b2h" id="ZS6-5l-Azp"/>
                 <outlet property="titleLabel" destination="pP8-UQ-VJj" id="M0a-IZ-ixh"/>
             </connections>
@@ -18,8 +21,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Elaborazione in corso..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="pP8-UQ-VJj">
-                    <frame key="frameInset" minX="75" minY="287" width="226" height="95"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3d-29-DlR">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="B3d-29-DlR" secondAttribute="height" multiplier="1:1" id="XVv-yg-5wi"/>
+                        <constraint firstAttribute="width" constant="300" id="zbZ-rs-muA"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elaborazione in corso..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="pP8-UQ-VJj">
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                     <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -35,10 +44,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="pP8-UQ-VJj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1QT-uN-W7t"/>
                 <constraint firstItem="dIs-Hl-b2h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="A07-rB-1xz"/>
-                <constraint firstItem="pP8-UQ-VJj" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" constant="1" id="Tm8-vg-vFu"/>
-                <constraint firstItem="pP8-UQ-VJj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lKd-qU-hN7"/>
+                <constraint firstItem="pP8-UQ-VJj" firstAttribute="width" secondItem="B3d-29-DlR" secondAttribute="width" multiplier="0.8" id="HXy-qj-F6q"/>
+                <constraint firstItem="B3d-29-DlR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="WVg-tY-NBO"/>
+                <constraint firstItem="pP8-UQ-VJj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aj5-ks-Ldr"/>
+                <constraint firstItem="B3d-29-DlR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nij-tq-Ejs"/>
+                <constraint firstItem="pP8-UQ-VJj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tKe-05-yts"/>
                 <constraint firstAttribute="trailing" secondItem="dIs-Hl-b2h" secondAttribute="trailing" constant="20" id="utY-wl-cWu"/>
             </constraints>
             <point key="canvasLocation" x="480.5" y="470.5"/>

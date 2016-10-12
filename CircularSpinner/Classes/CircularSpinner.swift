@@ -25,6 +25,12 @@ open class CircularSpinner: UIView {
     
     
     // MARK: - outlets
+    @IBOutlet fileprivate weak var circleView: UIView!
+    @IBOutlet fileprivate weak var circleViewWidth: NSLayoutConstraint! {
+        didSet {
+            layoutIfNeeded()
+        }
+    }
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet fileprivate weak var dismissButton: UIButton!
     
@@ -47,7 +53,7 @@ open class CircularSpinner: UIView {
         return 5 * CGFloat(M_PI_2)
     }
     fileprivate var arcCenter: CGPoint {
-        return CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        return convert(circleView.center, to: circleView)
     }
     fileprivate var arcRadius: CGFloat {
         return (min(bounds.width, bounds.height) * 0.8) / 2
@@ -55,6 +61,15 @@ open class CircularSpinner: UIView {
     
     fileprivate var oldStrokeEnd: Float?
     fileprivate var backingValue: Float = 0
+    open override var frame: CGRect {
+        didSet {
+            if frame == CGRect.zero { return }
+            
+            backgroundCircleLayer.frame = bounds
+            progressCircleLayer.frame = bounds
+            circleView.center = center
+        }
+    }
     open var value: Float {
         get {
             return backingValue
@@ -141,21 +156,24 @@ open class CircularSpinner: UIView {
     fileprivate func configure() {
         backgroundColor = UIColor.clear
         
+        configureCircleView()
         configureBackgroundLayer()
         configureProgressLayer()
         configureDismissButton()
         configureType()
     }
     
+    fileprivate func configureCircleView() {
+        circleViewWidth.constant = arcRadius * 2
+    }
+    
     fileprivate func configureBackgroundLayer() {
-        backgroundCircleLayer.bounds = bounds
-        layer.addSublayer(backgroundCircleLayer)
+        circleView.layer.addSublayer(backgroundCircleLayer)
         appearanceBackgroundLayer()
     }
     
     fileprivate func configureProgressLayer() {
-        progressCircleLayer.bounds = bounds
-        layer.addSublayer(progressCircleLayer)
+        circleView.layer.addSublayer(progressCircleLayer)
         appearanceProgressLayer()
     }
     
@@ -188,7 +206,6 @@ open class CircularSpinner: UIView {
         progressCircleLayer.fillColor = UIColor.clear.cgColor
         progressCircleLayer.strokeColor = pgColor.cgColor
         progressCircleLayer.lineCap = kCALineCapRound
-        setNeedsDisplay()
     }
     
     fileprivate func appearanceDismissButton() {
@@ -210,15 +227,9 @@ open class CircularSpinner: UIView {
         updateFrame()
     }
     
-    fileprivate func updateFrame() {
+    public func updateFrame() {
         if let containerView = CircularSpinner.containerView() {
             CircularSpinner.sharedInstance.frame = containerView.bounds
-            
-            backgroundCircleLayer.bounds = bounds
-            progressCircleLayer.bounds = bounds
-            
-            backgroundCircleLayer.position = arcCenter
-            progressCircleLayer.position = arcCenter
         }
     }
     
@@ -254,12 +265,12 @@ open class CircularSpinner: UIView {
     
     fileprivate func startInderminateAnimation() {
         progressCircleLayer.add(generateAnimation(), forKey: "strokeLineAnimation")
-        progressCircleLayer.add(generateRotationAnimation(), forKey: "rotationAnimation")
+        circleView.layer.add(generateRotationAnimation(), forKey: "rotationAnimation")
     }
     
     fileprivate func stopInderminateAnimation() {
         progressCircleLayer.removeAllAnimations()
-        progressCircleLayer.removeAllAnimations()
+        circleView.layer.removeAllAnimations()
     }
     
     
@@ -330,7 +341,6 @@ extension CircularSpinner {
         spinner.showDismissButton = showDismissButton
         spinner.value = 0
         spinner.updateFrame()
-        spinner.setNeedsDisplay()
         
         if spinner.superview == nil {
             spinner.alpha = 0
@@ -345,11 +355,15 @@ extension CircularSpinner {
                 spinner.alpha = 1
                 }, completion: nil)
         }
+        
+        NotificationCenter.default.addObserver(spinner, selector: #selector(updateFrame), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
     }
     
     public class func hide(_ completion: (() -> Void)? = nil) {
         let spinner = CircularSpinner.sharedInstance
         spinner.stopInderminateAnimation()
+        
+        NotificationCenter.default.removeObserver(spinner)
         
         DispatchQueue.main.async(execute: {
             if spinner.superview == nil {

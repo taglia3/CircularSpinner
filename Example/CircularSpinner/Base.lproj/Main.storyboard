@@ -46,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="UPR-B1-Ehv" firstAttribute="leading" secondItem="uXX-fP-zDK" secondAttribute="leading" id="FRV-ar-670"/>
                                     <constraint firstItem="bsz-6h-Oo1" firstAttribute="top" secondItem="uXX-fP-zDK" secondAttribute="top" id="RG2-SX-0YD"/>
@@ -56,7 +56,7 @@
                                     <constraint firstItem="bsz-6h-Oo1" firstAttribute="leading" secondItem="UPR-B1-Ehv" secondAttribute="trailing" constant="10" id="k8d-0U-RP3"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yhx-DM-Rl9">
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yhx-DM-Rl9">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -72,7 +72,7 @@
                             <constraint firstItem="1ds-m4-FpJ" firstAttribute="top" secondItem="uXX-fP-zDK" secondAttribute="bottom" constant="10" id="Wdg-f5-gnP"/>
                             <constraint firstItem="BWX-Tb-3ZD" firstAttribute="top" secondItem="1ds-m4-FpJ" secondAttribute="bottom" constant="15" id="cMQ-9H-NyP"/>
                             <constraint firstItem="NZz-24-edl" firstAttribute="leading" secondItem="oW4-TZ-Uif" secondAttribute="leading" id="fgQ-jK-1ut"/>
-                            <constraint firstItem="uXX-fP-zDK" firstAttribute="top" secondItem="Yhx-DM-Rl9" secondAttribute="bottom" constant="100" id="gh5-zf-NKx"/>
+                            <constraint firstItem="uXX-fP-zDK" firstAttribute="top" secondItem="Yhx-DM-Rl9" secondAttribute="bottom" constant="30" id="gh5-zf-NKx"/>
                             <constraint firstItem="1ds-m4-FpJ" firstAttribute="centerX" secondItem="BWX-Tb-3ZD" secondAttribute="centerX" id="jh5-Am-6Uw"/>
                             <constraint firstItem="Yhx-DM-Rl9" firstAttribute="top" secondItem="Opj-XA-VAP" secondAttribute="bottom" constant="30" id="lBS-mL-cfI"/>
                             <constraint firstItem="Yhx-DM-Rl9" firstAttribute="leading" secondItem="oW4-TZ-Uif" secondAttribute="leading" constant="60" id="wKe-2d-5wg"/>

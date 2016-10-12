@@ -1,5 +1,5 @@
 PODS:
-  - CircularSpinner (1.1.1)
+  - CircularSpinner (1.1.2)
 
 DEPENDENCIES:
   - CircularSpinner (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CircularSpinner: 04a5ae1564b7d5731b7f1ef1f48278aaacd21894
+  CircularSpinner: e7ae2fdfcae4e3f3065e62e2e66de3c1837c7663
 
 PODFILE CHECKSUM: e1fcd58bf0b48a8ef7221c5162adce83693a8ebf
 
