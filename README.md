@@ -22,6 +22,16 @@ Swift 2.2:
 pod 'CircularSpinner' ', '~> 0.2'
 ```
 
+Objective-C:
+
+```ruby
+use_frameworks!
+pod 'CircularSpinner' , '~> 1.2.0'
+```
+
+Link the 'CircularSpinner.framework' to your target in Build Phases.
+
+
 # Usage
 You can present the circular spinner from anywhere by calling the `show()` class method.
 
@@ -65,6 +75,32 @@ CircularSpinner.hide()
 
 ## Delegate
 There's one method in the CircularSpinnerDelegate that you can use to customize the appearance of the percentual Label:
+
+# Usage (example in Objective-C)
+You can present the circular spinner from anywhere by calling the `show()` class method.
+
+```objective-c
+#import "ViewController.h"
+#import <CircularSpinner/CircularSpinner-Swift.h>
+
+@interface ViewController () <CircularSpinnerDelegate>
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+[super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+[super viewDidAppear:animated];
+[CircularSpinner show:@"Loading" animated: TRUE type:CircularSpinnerTypeDeterminate showDismissButton:[NSNumber numberWithBool:TRUE] delegate:self];
+[CircularSpinner setValue:0.1 animated: TRUE];
+}
+@end
+```
+
 
 ```swift
 @objc optional func circularSpinnerTitleForValue(_ value: Float) -> NSAttributedString
