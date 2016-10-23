@@ -19,15 +19,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // customize spinner
-        //        CircularSpinner.trackPgColor = UIColor.orange
-        //        CircularSpinner.trackBgColor = UIColor.green
+        // customize spinner (globally)
+//        CircularSpinner.trackPgColor = UIColor.orange
+//        CircularSpinner.trackBgColor = UIColor.green
+//        CircularSpinner.dismissButton = true
     }
     
     
     // MARK : - actions
     @IBAction private func showDeterminateSpinner(sender: UIButton?) {
         
+        //
         CircularSpinner.show(animated: true, showDismissButton: false, delegate: self)
         CircularSpinner.setValue(0.1, animated: true)
         
@@ -44,7 +46,7 @@ class ViewController: UIViewController {
         CircularSpinner.show("Loading...", animated: true, type: .indeterminate)
         
         delayWithSeconds(5) {
-            CircularSpinner.hide()
+//            CircularSpinner.hide()
         }
     }
     

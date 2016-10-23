@@ -333,12 +333,12 @@ open class CircularSpinner: UIView {
 // MARK: - API
 extension CircularSpinner {
     
-    public class func show(_ title: String = "", animated: Bool = true, type: CircularSpinnerType = .determinate, showDismissButton: Bool = true, delegate: CircularSpinnerDelegate? = nil) {
+    open class func show(_ title: String = "", animated: Bool = true, type: CircularSpinnerType = .determinate, showDismissButton: Bool? = nil, delegate: CircularSpinnerDelegate? = nil) {
         let spinner = CircularSpinner.sharedInstance
         spinner.type = type
         spinner.delegate = delegate
         spinner.titleLabel.text = title
-        spinner.showDismissButton = showDismissButton
+        spinner.showDismissButton = showDismissButton ?? CircularSpinner.dismissButton
         spinner.value = 0
         spinner.updateFrame()
         
@@ -359,7 +359,7 @@ extension CircularSpinner {
         NotificationCenter.default.addObserver(spinner, selector: #selector(updateFrame), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
     }
     
-    public class func hide(_ completion: (() -> Void)? = nil) {
+    open class func hide(_ completion: (() -> Void)? = nil) {
         let spinner = CircularSpinner.sharedInstance
         spinner.stopInderminateAnimation()
         
@@ -372,7 +372,7 @@ extension CircularSpinner {
             
             UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseOut, animations: {
                 spinner.alpha = 0
-                }, completion: {_ in
+                }, completion: { _ in
                     spinner.alpha = 1
                     spinner.removeFromSuperview()
                     completion?()

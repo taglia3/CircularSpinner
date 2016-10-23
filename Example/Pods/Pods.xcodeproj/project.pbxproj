@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25BE5ACE33320B0F5052F7896B5499F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		2AFE76A5313ED5A1F224E93607865D7D /* x_darkGray@2x.png in Sources */ = {isa = PBXBuildFile; fileRef = 94304442232B625A3F75A27A4F433E35 /* x_darkGray@2x.png */; };
 		2B21C19E7B3F0159D4850C75BCAB8CD0 /* x_darkGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94304442232B625A3F75A27A4F433E35 /* x_darkGray@2x.png */; };
 		32DC0E5BD61349B932171998C638EAEA /* Pods-CircularSpinner_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C59F4F03EF049CC0F7CEA15FAFBBFEAD /* Pods-CircularSpinner_Tests-dummy.m */; };
+		38D3EB0D79919952E82A840BC3FD3D5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		4C7B29BB45007E1A059589370CA34E58 /* Pods-CircularSpinner_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57496CE6BE099EC50E07B1600FAA9D54 /* Pods-CircularSpinner_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5447B28C4020F48E4D711DB57D543B73 /* x_darkGray@3x.png in Sources */ = {isa = PBXBuildFile; fileRef = E129A43A879FCA4776BEBCF38FA0031F /* x_darkGray@3x.png */; };
 		68388B5A2F1443501D3EE79283F33D4F /* CircularSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797B399E3F75421D907A597CBC3FE6A /* CircularSpinner.swift */; };
-		6C88C4B157AD50BFFE977257331C5A2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		766B13B4D9D68C01423C1F94313CF399 /* CircularSpinner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E59E994BF223E7E7B41285EAC1EFAB6A /* CircularSpinner.bundle */; };
-		8107AF6C9AA4FE47C1B817781D164F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		889F38473AF7738DC99D5C8A485B3C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		79BFF689E75A08D8A13E283BC06AFAE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		9C22EC8722331D66A66D59A19F8E2381 /* CircularSpinner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C22E755F23CA2B8D0773722EB7E0C93C /* CircularSpinner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C3D7FA6C9EF3DAA8FC13DCB4711A84 /* x_darkGray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A43A879FCA4776BEBCF38FA0031F /* x_darkGray@3x.png */; };
 		B30E66B06E0D2E05374F844083DAF62D /* CircularSpinner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1B8F1B65762EA330806B2DEA75E90 /* CircularSpinner-dummy.m */; };
 		B4957AFC45F5F25DFF821B5EA61F2B28 /* Pods-CircularSpinner_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4B428654584ADF369914F04399EF33 /* Pods-CircularSpinner_Example-dummy.m */; };
+		EDC925E8EBA1B86F5C06C2B831B02DAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
 		F4B17641F00BA3E82406CD7D68C5CC0F /* CircularSpinner.xib in Sources */ = {isa = PBXBuildFile; fileRef = 7E686EDE8CFE391B0CE65E2A303B5A88 /* CircularSpinner.xib */; };
+		F5FFEB5D8516B8EAC7C0F5EC9B4D9B20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		F97A7C77672598CC9E5C29EA248C8AF6 /* Pods-CircularSpinner_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42813596976FEBCC4BCB49ED3239E93F /* Pods-CircularSpinner_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -52,11 +52,13 @@
 		48606EFBBA51586449220CEEF26FB2D3 /* CircularSpinner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CircularSpinner.modulemap; sourceTree = "<group>"; };
 		5063A26B31126859FACD1C58AADF5AF8 /* Pods-CircularSpinner_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CircularSpinner_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		57496CE6BE099EC50E07B1600FAA9D54 /* Pods-CircularSpinner_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CircularSpinner_Tests-umbrella.h"; sourceTree = "<group>"; };
+		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		64307A2641AAC2A0A9AB99A98153C651 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651D835D90660E585BA62550FD92F45A /* Pods-CircularSpinner_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CircularSpinner_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		65491464EB01DFA8957DC0569739B2DA /* Pods-CircularSpinner_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CircularSpinner_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		71981F74268445393AA98A75B748E4E2 /* Pods-CircularSpinner_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CircularSpinner_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7E686EDE8CFE391B0CE65E2A303B5A88 /* CircularSpinner.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CircularSpinner.xib; sourceTree = "<group>"; };
+		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		8459B51CF28C87F33D41A37F5A5E94E6 /* Pods-CircularSpinner_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CircularSpinner_Tests.modulemap"; sourceTree = "<group>"; };
 		8608F7494BE913EBCACBEC1E95E59AF8 /* Pods-CircularSpinner_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CircularSpinner_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		886417ADA2DD0215A10B320316C708B9 /* Pods-CircularSpinner_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CircularSpinner_Example.modulemap"; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94304442232B625A3F75A27A4F433E35 /* x_darkGray@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "x_darkGray@2x.png"; sourceTree = "<group>"; };
 		9AA8581A4DBB97ED7275EA0E34443E01 /* Pods-CircularSpinner_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CircularSpinner_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		AD474E73E7A6D85070B564F3560BDC9B /* Pods-CircularSpinner_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CircularSpinner_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B5D607AA5AD4C5C818B56BA986554805 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C22E755F23CA2B8D0773722EB7E0C93C /* CircularSpinner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CircularSpinner-umbrella.h"; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		E6C4C3DB2D823709A73438B4006FA0EE /* CircularSpinner.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CircularSpinner.xcconfig; sourceTree = "<group>"; };
 		E797B399E3F75421D907A597CBC3FE6A /* CircularSpinner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CircularSpinner.swift; sourceTree = "<group>"; };
 		E80D7FC19F7CE3CD0AC4CA310F4DAEFE /* CircularSpinner-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CircularSpinner-prefix.pch"; sourceTree = "<group>"; };
-		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		EB4B428654584ADF369914F04399EF33 /* Pods-CircularSpinner_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CircularSpinner_Example-dummy.m"; sourceTree = "<group>"; };
 		F4FCE75F0D9998FB113E032C3E1AD727 /* Pods-CircularSpinner_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CircularSpinner_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,8 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C88C4B157AD50BFFE977257331C5A2D /* Foundation.framework in Frameworks */,
-				889F38473AF7738DC99D5C8A485B3C56 /* UIKit.framework in Frameworks */,
+				38D3EB0D79919952E82A840BC3FD3D5B /* Foundation.framework in Frameworks */,
+				EDC925E8EBA1B86F5C06C2B831B02DAA /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25BE5ACE33320B0F5052F7896B5499F0 /* Foundation.framework in Frameworks */,
+				F5FFEB5D8516B8EAC7C0F5EC9B4D9B20 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8107AF6C9AA4FE47C1B817781D164F22 /* Foundation.framework in Frameworks */,
+				79BFF689E75A08D8A13E283BC06AFAE6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +147,7 @@
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+				E6EE98446B568159EE277B68FD442AF0 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,11 +261,11 @@
 			path = "Example/Pods/Target Support Files/CircularSpinner";
 			sourceTree = "<group>";
 		};
-		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
+		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
-				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+				616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */,
+				7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
