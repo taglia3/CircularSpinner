@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'CircularSpinner'
-  s.version      = '1.1.3'
+  s.version      = '1.2.0'
   s.summary      = 'A Beautiful fullscreen Circular Spinner, very useful for determinate or indeterminate task.'
   s.description  = <<-DESC
   A Beautiful fullscreen Circular Spinner, very useful for determinate or indeterminate task. You can use it as activity indicator during loading.
