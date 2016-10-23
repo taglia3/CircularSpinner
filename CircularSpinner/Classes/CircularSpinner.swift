@@ -13,7 +13,7 @@ import UIKit
 }
 
 
-public enum CircularSpinnerType {
+@objc public enum CircularSpinnerType: Int {
     case determinate
     case indeterminate
 }
@@ -333,12 +333,12 @@ open class CircularSpinner: UIView {
 // MARK: - API
 extension CircularSpinner {
     
-    open class func show(_ title: String = "", animated: Bool = true, type: CircularSpinnerType = .determinate, showDismissButton: Bool? = nil, delegate: CircularSpinnerDelegate? = nil) {
+    open class func show(_ title: String = "", animated: Bool = true, type: CircularSpinnerType = .determinate, showDismissButton: Any? = nil, delegate: CircularSpinnerDelegate? = nil) {
         let spinner = CircularSpinner.sharedInstance
         spinner.type = type
         spinner.delegate = delegate
         spinner.titleLabel.text = title
-        spinner.showDismissButton = showDismissButton ?? CircularSpinner.dismissButton
+        spinner.showDismissButton = (showDismissButton as? Bool) ?? CircularSpinner.dismissButton
         spinner.value = 0
         spinner.updateFrame()
         

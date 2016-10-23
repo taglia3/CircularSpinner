@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         // customize spinner (globally)
 //        CircularSpinner.trackPgColor = UIColor.orange
 //        CircularSpinner.trackBgColor = UIColor.green
-//        CircularSpinner.dismissButton = true
+        CircularSpinner.dismissButton = true
     }
     
     
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     @IBAction private func showDeterminateSpinner(sender: UIButton?) {
         
         //
-        CircularSpinner.show(animated: true, showDismissButton: false, delegate: self)
+        CircularSpinner.show(animated: true, showDismissButton: true, delegate: self)
         CircularSpinner.setValue(0.1, animated: true)
         
         delayWithSeconds(1) {
