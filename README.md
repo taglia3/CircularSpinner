@@ -73,9 +73,6 @@ Dismiss by calling:
 CircularSpinner.hide()
 ```
 
-## Delegate
-There's one method in the CircularSpinnerDelegate that you can use to customize the appearance of the percentual Label:
-
 # Usage (example in Objective-C)
 You can present the circular spinner from anywhere by calling the `show()` class method.
 
@@ -101,6 +98,8 @@ You can present the circular spinner from anywhere by calling the `show()` class
 @end
 ```
 
+## Delegate
+There's one method in the CircularSpinnerDelegate that you can use to customize the appearance of the percentual Label:
 
 ```swift
 @objc optional func circularSpinnerTitleForValue(_ value: Float) -> NSAttributedString
