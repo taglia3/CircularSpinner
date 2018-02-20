@@ -64,11 +64,11 @@ extension ViewController: CircularSpinnerDelegate {
     func circularSpinnerTitleForValue(_ value: Float) -> NSAttributedString {
         let attributeStr = NSMutableAttributedString(string: "\(Int(value * 100))%")
         if #available(iOS 8.2, *) {
-            attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 60, weight: UIFontWeightThin)], range: NSMakeRange(0, attributeStr.string.characters.count - 1))
-            attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 40, weight: UIFontWeightUltraLight)], range: NSMakeRange(attributeStr.string.characters.count - 1, 1))
+            attributeStr.addAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 60, weight: UIFont.Weight.thin)], range: NSMakeRange(0, attributeStr.string.count - 1))
+            attributeStr.addAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 40, weight: UIFont.Weight.ultraLight)], range: NSMakeRange(attributeStr.string.count - 1, 1))
         } else {
-            attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 60)], range: NSMakeRange(0, attributeStr.string.characters.count - 1))
-            attributeStr.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 40)], range: NSMakeRange(attributeStr.string.characters.count - 1, 1))
+            attributeStr.addAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 60)], range: NSMakeRange(0, attributeStr.string.count - 1))
+            attributeStr.addAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 40)], range: NSMakeRange(attributeStr.string.count - 1, 1))
         }
         return attributeStr
     }
