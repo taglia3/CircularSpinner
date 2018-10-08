@@ -21,7 +21,7 @@ import UIKit
 open class CircularSpinner: UIView {
     
     // MARK: - singleton
-    static open let sharedInstance = CircularSpinner(frame: CGRect.zero)
+    static public let sharedInstance = CircularSpinner(frame: CGRect.zero)
     
     
     // MARK: - outlets
@@ -83,26 +83,26 @@ open class CircularSpinner: UIView {
             configureType()
         }
     }
-    open static var dismissButton: Bool = true
+    public static var dismissButton: Bool = true
     open var showDismissButton = dismissButton {
         didSet {
             appearanceDismissButton()
         }
     }
-    open static var trackLineWidth: CGFloat = 6
+    public static var trackLineWidth: CGFloat = 6
     private var lineWidth = trackLineWidth {
         didSet {
             appearanceBackgroundLayer()
             appearanceProgressLayer()
         }
     }
-    open static var trackBgColor = UIColor(red: 238.0/255, green: 238.0/255, blue: 238.0/255, alpha: 1)
+    public static var trackBgColor = UIColor(red: 238.0/255, green: 238.0/255, blue: 238.0/255, alpha: 1)
     private var bgColor = trackBgColor {
         didSet {
             appearanceBackgroundLayer()
         }
     }
-    open static var trackPgColor = UIColor(red: 47.0/255, green: 177.0/255, blue: 254.0/255, alpha: 1)
+    public static var trackPgColor = UIColor(red: 47.0/255, green: 177.0/255, blue: 254.0/255, alpha: 1)
     private var pgColor = trackPgColor {
         didSet {
             appearanceProgressLayer()
@@ -128,7 +128,7 @@ open class CircularSpinner: UIView {
     fileprivate func xibSetup() {
         mainView = loadViewFromNib()
         mainView.frame = bounds
-        mainView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        mainView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         addSubview(mainView)
     }
     
@@ -198,14 +198,14 @@ open class CircularSpinner: UIView {
         backgroundCircleLayer.lineWidth = lineWidth
         backgroundCircleLayer.fillColor = UIColor.clear.cgColor
         backgroundCircleLayer.strokeColor = bgColor.cgColor
-        backgroundCircleLayer.lineCap = kCALineCapRound
+        backgroundCircleLayer.lineCap = CAShapeLayerLineCap.round
     }
     
     fileprivate func appearanceProgressLayer() {
         progressCircleLayer.lineWidth = lineWidth
         progressCircleLayer.fillColor = UIColor.clear.cgColor
         progressCircleLayer.strokeColor = pgColor.cgColor
-        progressCircleLayer.lineCap = kCALineCapRound
+        progressCircleLayer.lineCap = CAShapeLayerLineCap.round
     }
     
     fileprivate func appearanceDismissButton() {
@@ -239,13 +239,13 @@ open class CircularSpinner: UIView {
         headAnimation.fromValue = 0
         headAnimation.toValue = 1
         headAnimation.duration = indeterminateDuration / 1.5
-        headAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        headAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let tailAnimation = CABasicAnimation(keyPath: "strokeEnd")
         tailAnimation.fromValue = 0
         tailAnimation.toValue = 1
         tailAnimation.duration = indeterminateDuration / 1.5
-        tailAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        tailAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let groupAnimation = CAAnimationGroup()
         groupAnimation.duration = indeterminateDuration
@@ -313,8 +313,8 @@ open class CircularSpinner: UIView {
         strokeAnimation.fromValue = oldStrokeEnd ?? 0
         strokeAnimation.toValue = spinner.value
         strokeAnimation.isRemovedOnCompletion = false
-        strokeAnimation.fillMode = kCAFillModeRemoved
-        strokeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        strokeAnimation.fillMode = CAMediaTimingFillMode.removed
+        strokeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         progressCircleLayer.add(strokeAnimation, forKey: "strokeLineAnimation")
         progressCircleLayer.strokeEnd = CGFloat(spinner.value)
         CATransaction.commit()
@@ -356,7 +356,7 @@ extension CircularSpinner {
                 }, completion: nil)
         }
         
-        NotificationCenter.default.addObserver(spinner, selector: #selector(updateFrame), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.addObserver(spinner, selector: #selector(updateFrame), name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
     }
     
     open class func hide(_ completion: (() -> Void)? = nil) {
